@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="WZAd" representedClassName="WZAd" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fromDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="merchantID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="showFromDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="showToDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="merchant" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZMerchant" inverseName="ads" inverseEntity="WZMerchant" syncable="YES"/>
+        <relationship name="serviceItem" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZServiceItem" inverseName="ads" inverseEntity="WZServiceItem" syncable="YES"/>
+    </entity>
+    <entity name="WZBulletin" representedClassName="WZBulletin" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postImages" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="followBulletins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZFollowBulltin" inverseName="bulletin" inverseEntity="WZFollowBulltin" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="bulletins" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZComment" representedClassName="WZComment" syncable="YES">
+        <attribute name="commenterName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="merchantID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="merchant" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZMerchant" inverseName="comments" inverseEntity="WZMerchant" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="commetns" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZConfigure" representedClassName="WZConfigure" syncable="YES">
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUpdateTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="pointLargessExplain" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="config" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZCoupon" representedClassName="WZCoupon" syncable="YES">
+        <attribute name="allowLargess" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="allowShare" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="couponName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="forbidden" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iconImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="merchantId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="point" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="promptIntro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="ruleText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="submitState" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="usableStores" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="coupons" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZFashionNews" representedClassName="WZFashionNews" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subhead" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="WZFollowBulltin" representedClassName="WZFollowBulltin" syncable="YES">
+        <attribute name="bullteinId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postImages" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bulletin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WZBulletin" inverseName="followBulletins" inverseEntity="WZBulletin" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="followBulletins" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZHotNews" representedClassName="WZHotNews" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newsType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subhead" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="WZLocation" representedClassName="WZLocation" syncable="YES">
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="relevantText" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="merchant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WZMerchant" inverseName="location" inverseEntity="WZMerchant" syncable="YES"/>
+        <relationship name="store" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZStore" inverseName="location" inverseEntity="WZStore" syncable="YES"/>
+    </entity>
+    <entity name="WZMember" representedClassName="WZMember" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="merchantID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="point" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="merchant" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZMerchant" inverseName="members" inverseEntity="WZMerchant" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="members" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZMemberCard" representedClassName="WZMemberCard" syncable="YES">
+        <attribute name="allowLargess" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="allowShare" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="forbidden" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iconImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberCardName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="merchantId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="promptIntro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ruleText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="submitState" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="usableStores" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="memberCards" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZMemberService" representedClassName="WZMemberService" syncable="YES">
+        <attribute name="allowLargess" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="allowShare" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="forbidden" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iconImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberServiceName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberServiceNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="memberServiceType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="merchantId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="promptIntro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ruleText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="submitState" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="usableStores" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="validToDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="vendingDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="memberServices" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZMerchant" representedClassName="WZMerchant" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="coordinate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="explain" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="largessExplain" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memberNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="merchatType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parentID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rate" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="rateExplain" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="score" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="scorestate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="telphone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updateTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZAd" inverseName="merchant" inverseEntity="WZAd" syncable="YES"/>
+        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZComment" inverseName="merchant" inverseEntity="WZComment" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WZLocation" inverseName="merchant" inverseEntity="WZLocation" syncable="YES"/>
+        <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZMember" inverseName="merchant" inverseEntity="WZMember" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZMessage" syncable="YES"/>
+        <relationship name="pointRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZPointRecord" inverseName="merchant" inverseEntity="WZPointRecord" syncable="YES"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZProduct" inverseName="merchant" inverseEntity="WZProduct" syncable="YES"/>
+        <relationship name="serviceItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZServiceItem" inverseName="merchant" inverseEntity="WZServiceItem" syncable="YES"/>
+        <relationship name="stores" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZStore" inverseName="merchant" inverseEntity="WZStore" syncable="YES"/>
+    </entity>
+    <entity name="WZMessage" representedClassName="WZMessage" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sentTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="toUserId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="send" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="messages" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZMeteringCard" representedClassName="WZMeteringCard" syncable="YES">
+        <attribute name="allowLargess" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="allowShare" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="forbidden" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iconImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="merchantId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="meteringCardName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="promptIntro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remainCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="ruleText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="submitState" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="usableStores" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="validToDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="vendingDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="meteringCards" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZPointRecord" representedClassName="WZPointRecord" syncable="YES">
+        <attribute name="addPoint" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="decPoint" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="merchantId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="operater" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="storeId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surplusPoint" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="transactionType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="merchant" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZMerchant" inverseName="pointRecords" inverseEntity="WZMerchant" syncable="YES"/>
+        <relationship name="store" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZStore" inverseName="pointRecords" inverseEntity="WZStore" syncable="YES"/>
+        <relationship name="user" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZUser" inverseName="pointRecords" inverseEntity="WZUser" syncable="YES"/>
+    </entity>
+    <entity name="WZProduct" representedClassName="WZProduct" syncable="YES">
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="merchantId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="originalPrice" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="privilegePrice" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="merchant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WZMerchant" inverseName="products" inverseEntity="WZMerchant" syncable="YES"/>
+    </entity>
+    <entity name="WZServiceItem" representedClassName="WZServiceItem" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="allowLargess" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="allowShare" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="applyExplain" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fromDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="intro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isApplicable" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isRequireApply" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="logoImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posterImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="promptIntro" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ruleText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceItemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceItemType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="usableStores" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ads" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZAd" inverseName="serviceItem" inverseEntity="WZAd" syncable="YES"/>
+        <relationship name="merchant" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZMerchant" inverseName="serviceItems" inverseEntity="WZMerchant" syncable="YES"/>
+    </entity>
+    <entity name="WZStore" representedClassName="WZStore" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cellPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="coordinate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rectangleImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="slogan" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="squareImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="storeImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="storeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vipImage" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="location" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZLocation" inverseName="store" inverseEntity="WZLocation" syncable="YES"/>
+        <relationship name="merchant" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZMerchant" inverseName="stores" inverseEntity="WZMerchant" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZMessage" syncable="YES"/>
+        <relationship name="pointRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZPointRecord" inverseName="store" inverseEntity="WZPointRecord" syncable="YES"/>
+    </entity>
+    <entity name="WZUser" representedClassName="WZUser" syncable="YES">
+        <attribute name="birth" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="faceIcon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="point" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="postImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bulletins" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZBulletin" inverseName="user" inverseEntity="WZBulletin" syncable="YES"/>
+        <relationship name="commetns" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZComment" inverseName="user" inverseEntity="WZComment" syncable="YES"/>
+        <relationship name="config" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="WZConfigure" inverseName="user" inverseEntity="WZConfigure" syncable="YES"/>
+        <relationship name="coupons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZCoupon" inverseName="user" inverseEntity="WZCoupon" syncable="YES"/>
+        <relationship name="followBulletins" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WZFollowBulltin" inverseName="user" inverseEntity="WZFollowBulltin" syncable="YES"/>
+        <relationship name="memberCards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZMemberCard" inverseName="user" inverseEntity="WZMemberCard" syncable="YES"/>
+        <relationship name="members" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZMember" inverseName="user" inverseEntity="WZMember" syncable="YES"/>
+        <relationship name="memberServices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZMemberService" inverseName="user" inverseEntity="WZMemberService" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZMessage" inverseName="send" inverseEntity="WZMessage" syncable="YES"/>
+        <relationship name="meteringCards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZMeteringCard" inverseName="user" inverseEntity="WZMeteringCard" syncable="YES"/>
+        <relationship name="pointRecords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WZPointRecord" inverseName="user" inverseEntity="WZPointRecord" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="WZAd" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZBulletin" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZComment" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZConfigure" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZCoupon" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZFashionNews" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZFollowBulltin" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZHotNews" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZLocation" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZMember" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZMemberCard" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZMemberService" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZMerchant" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZMessage" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZMeteringCard" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZPointRecord" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZProduct" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZServiceItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZStore" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="WZUser" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
